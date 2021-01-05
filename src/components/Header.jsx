@@ -1,18 +1,28 @@
-import React from "react";
+import React,{useContext} from "react";
+import { Link } from "react-router-dom";
+// reducer
+import {CartContext} from '../Global/CartContext';
+// material icon
+import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
+import StoreRoundedIcon from '@material-ui/icons/StoreRounded';
 
 const Header = () => {
+  const {cart}=useContext(CartContext);
+  let {qty} = cart;
+
   return (<header>
     <div className="container">
       <nav>
-        <a href="/">MM</a>
+        <Link to="/" className="brand"><StoreRoundedIcon style={{ color: '#FB8500' }} /></Link>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">About Us</a></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/">Products</Link></li>
+          <li><Link to="/">Contact Us</Link></li>
+          <li><Link to="/">About Us</Link></li>
         </ul>
         <div className="cart">
-          <a href="#">Cart <span>(0)</span></a>
+          <ShoppingCartRoundedIcon style={{ color: '#FB8500' }} />
+          <Link to="/cart">{qty}</Link>
         </div>
       </nav>
     </div>

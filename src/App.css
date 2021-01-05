@@ -9,6 +9,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+:root {
+  --primary: #FB8500;
+  --secondary: #FFB703;
+}
+
 .container {
   width: 100%;
   padding: 0px 50px;
@@ -27,14 +32,13 @@ header nav {
   width: 100%;
   display: flex;
   flex-direction: row;
+  align-items: center;
   position: relative;
 }
 
-header nav>a {
-  font-size: 1.5em;
-  font-weight: bold;
+header nav .brand svg{
+  font-size: 50px;
   text-decoration: none;
-  line-height: 2.5em;
   display: inline-block;
 }
 
@@ -46,26 +50,46 @@ header nav ul {
 }
 
 header nav ul li a {
-  font-size: 0.9em;
-  line-height: 3.5em;
+  font-size: 1em;
+  line-height: 3.2em;
   padding: 5px 10px;
   display: inline-block;
   text-decoration: none;
+  color: var(--primary);
+}
+
+header nav ul li a:hover {
+  color: var(--secondary);
+  background-color: #fafafa;
 }
 
 header nav .cart {
   position: absolute;
+  display: flex;
+  flex-direction: row;
+  top: 3px; 
   right: 0px;
+  width: 80px;
+  height: 55px;
+  border-radius: 47%;
+  padding: 15px 7px 10px;
 }
 
 header nav .cart a {
-  font-size: 0.9em;
+  font-size: 0.79em;
   text-decoration: none;
-  line-height: 3.5em;
-  padding: 5px 10px;
-  display: inline-block;
+  line-height: 2.5em;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  display: inline-block;  
+  background-color: var(--primary);
+  color: #fff;
 }
-
+header nav .cart svg{
+  margin-right: 10px;
+}
 
 /* hero banner */
 .hero {
@@ -75,7 +99,7 @@ header nav .cart a {
 .hero .banner {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 300px;
   overflow: hidden;
 }
 
@@ -94,7 +118,6 @@ header nav .cart a {
   top: 0px;
   left: 0px;
   width: 100%;
-  /* z-index: -1; */
 }
 
 .hero .banner .img img {
@@ -103,10 +126,151 @@ header nav .cart a {
 
 .img h2 {
   position: absolute;
-  top: 25%;
+  top: 15%;
   left: 20%;
   text-align: center;
   color: #fff;
   z-index: 100;
   font-size: 3em;
+}
+
+/* products Home */
+.products {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.products .product {
+  border-radius: 15px;
+  overflow: hidden;
+  width: 200px;
+  margin: 15px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease-in-out;
+}
+
+.products .product:hover {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+  transform: scale(1.05, 1.05);
+}
+
+.product .img {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.product .img span {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 15px;
+  font-size: 0.5em;
+}
+
+.product .img #hot {
+  background-color: var(--primary);
+}
+
+.product .img #new {
+  background-color: limegreen;
+}
+
+.product .img img {
+  width: 100%;
+}
+
+.product .details {
+  padding: 15px 20px;
+}
+
+.addToCart {
+  text-align: center;
+  color: #fff;
+  background-color: var(--primary);
+  font-weight: bold;
+  padding: 5px 0px;
+  cursor: pointer;
+}
+
+.addToCart:hover {
+  background-color: var(--secondary);
+}
+
+/* Cart Page */
+.cart_product{
+  padding: 50px 0px;
+  display: flex;
+  flex-direction: column;
+}
+.cart_product .cart_container{
+  background-color: #fafafa;
+  padding: 10px;
+  margin: 10px 0px;
+  display: flex;
+  align-items: center;
+}
+
+.cart_product span{
+  display: inline-block;
+}
+
+.cart_product .item_img{
+  width: 80px;
+  height: 80px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.cart_product .item_img img{
+  width: 100%;
+  height: 100%;
+}
+
+.cart_product .item_name{
+  padding: 0px 15px;
+  font-weight: bolder;
+}
+
+.cart_product .item_price{
+  padding: 0px 15px;
+  font-weight: bold;
+  color: red;
+}
+
+.cart_product .item_qty{
+  display: flex;
+  align-items: center;
+  padding: 0px 15px;
+}
+.item_qty .inc,.item_qty .dec{
+  cursor: pointer;
+  font-size: 25px; 
+  display: inline-block;
+  border: 0.5px solid;
+  border-radius: 5px;
+}
+.item_qty .qty{
+  font-weight: bold;
+  font-size: 18px;
+  padding: 0px 15px;
+}
+
+.cart_product .item_subtotal{
+  padding: 0px 15px;
+  font-weight: bold;
+}
+
+.cart_product .del{
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.cart_product button:hover{
+  background-color: rgba(255, 0, 0, 0.884);
+
 }
