@@ -1,12 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
 
-import nikonDslr from '../assets/nikondslr.jpg';
-import samsungHandfree from '../assets/samsunghandsfree.jpg';
-import appleAirpod from '../assets/appleairpod.jpg';
-import blueYetti from '../assets/blueyetti.jpg';
-import microphone from '../assets/microphone.jpg';
-import { nanoid } from 'nanoid';
-
 export const ProductContext = createContext();
 
 const ProductContextProvider = (props)=>{

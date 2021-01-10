@@ -8,7 +8,6 @@ const Product = (props) => {
   const {dispatch}=useContext(CartContext);
 
   return (
-    <div className="container">
       <div className="product" id={props.data.id}>
     <div className="img">
       {props.data.status === "Hot" ? <span id="hot">Hot</span> : <span id="new">New</span>}
@@ -22,7 +21,6 @@ const Product = (props) => {
       Add to Cart
     </div>
   </div>
-    </div>
   )
 }
 export default Product;
