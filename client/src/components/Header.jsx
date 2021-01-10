@@ -16,7 +16,7 @@ const Header = () => {
         <Link to="/" className="brand"><StoreRoundedIcon style={{ color: '#FB8500' }} /></Link>
         <ul>
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/">Products</Link></li>
+          <li><Link to="/products">Products</Link></li>
           <li><Link to="/">Contact Us</Link></li>
           <li><Link to="/">About Us</Link></li>
         </ul>

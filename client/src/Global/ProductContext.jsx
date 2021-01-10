@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 
 import nikonDslr from '../assets/nikondslr.jpg';
 import samsungHandfree from '../assets/samsunghandsfree.jpg';
@@ -10,47 +10,21 @@ import { nanoid } from 'nanoid';
 export const ProductContext = createContext();
 
 const ProductContextProvider = (props)=>{
-    const [products,setProducts]=useState([{
-        "id": nanoid(5),
-        "name": "Nikon DSLR Camera",
-        "img": nikonDslr,
-        "category": "camera",
-        "price": 25,
-        "status": "Hot"
-      },
-      {
-        "id": nanoid(5),
-        "name": "Samsung Handfree",
-        "img": samsungHandfree,
-        "category": "handfree",
-        "price": 45,
-        "status": "New"
-      },
-      {
-        "id": nanoid(5),
-        "name": "Apple AirPods",
-        "img": appleAirpod,
-        "category": "handfree",
-        "price": 90,
-        "status": "Hot"
-      },
-      {
-        "id": nanoid(5),
-        "name": "Microphone",
-        "img": microphone,
-        "category": "micronphone",
-        "price": 70,
-        "status": "New"
-      },
-      {
-        "id": nanoid(5),
-        "name": "Blue Yetti",
-        "img": blueYetti,
-        "category": "microphone",
-        "price": 25,
-        "status": "Hot"
-      }
-      ]);
+    const [products,setProducts]=useState([]);
+      const [productId,setProductId]=useState(0);
+
+      useEffect(()=>{
+        const fetchData = async () => {
+          try {
+              const data = await fetch('http://localhost:4000/products')
+              const body = await data.json();
+              setProducts(body);
+          }catch(err){
+            console.log(err)
+          }
+        }
+          fetchData();
+        },[productId]);
 
     return(
         <ProductContext.Provider value={{products,setProducts}}>

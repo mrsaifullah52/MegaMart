@@ -4,6 +4,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Cart from "./pages/Cart";
+import Products from './pages/Products';
 import Header from "./components/Header";
 // importing Router
 import { Route, Switch } from "react-router-dom";
@@ -21,7 +22,8 @@ const App = () => {
               <Header/> 
         <Switch>
         <Route path="/" exact component={Home} />
-          <Route path="/cart" exact component={Cart} />
+        <Route path="/cart" exact component={Cart} />
+        <Route path="/products" exact component={Products} />
         
         <Route component={NotFound} />
         </Switch>
